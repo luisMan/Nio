@@ -12,7 +12,7 @@ Nio is a professional-grade AI runtime designed for autonomous, memory-centric s
 
 ## 📦 Installation
 
-Download the latest binary for your platform from the [Releases](https://github.com/luisMan/Nio-AI/releases) tab.
+Download the latest binary for your platform
 
 ### Windows
 1. Download `nio.exe`.
