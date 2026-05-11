@@ -1,0 +1,27 @@
+
+---
+
+### ⚖️ 2. LICENSE
+Since this is a proprietary release, here is the standard **NioCoders Proprietary License** we've prepared for you:
+
+```text
+Nio AI Platform - Proprietary License
+Copyright (c) 2026 NioCoders LLC. All rights reserved.
+
+This software and its associated documentation (the "Software") are the 
+intellectual property of NioCoders LLC.
+
+1. PERMITTED USE: You are granted a non-exclusive, non-transferable license 
+to download, install, and use the compiled binary versions of the Software 
+for personal or internal business purposes.
+
+2. RESTRICTIONS: You may not:
+   - Decompile, disassemble, or reverse engineer the Software.
+   - Redistribute, sell, or lease the Software to third parties.
+   - Modify the Software or create derivative works based on the Software.
+
+3. NO WARRANTY: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY 
+KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY.
+
+Created by Luis Manon.
