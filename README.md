@@ -27,7 +27,7 @@ Ensure your client environment profile is configured to target the active hosted
 
 📁 **File Path**: `config/profiles/client.env`
 *   Verify that `NIO_GATEWAY_BASE_URL` is set to your active Render service endpoint:
-    ```APP_ENV=production
+```APP_ENV=production
 LOG_LEVEL=info
 NIO_ROUTING_CONFIG_PATH=data/runtime/model-routing.json
 NIO_ROUTING_STATE_BACKEND=file
@@ -47,7 +47,8 @@ NIO_BUDGET_WORKSPACE_TOKENS_PER_MONTH=2000000
 NIO_LOCAL_GPU_BASE_URL=
 NIO_LOCAL_GPU_MODEL=qwen2.5-32b-instruct
 NIO_GATEWAY_BASE_URL=https://nioai.run
-    ```
+```
+
 
 ### Step 2: Simulate a Local Agent Learning Record
 In your active project workspace directory, create a `.nio` folder if it doesn't exist, and add a test `learnings.json` file to simulate a learning formulate by Nio:
