@@ -49,6 +49,16 @@ NIO_LOCAL_GPU_MODEL=qwen2.5-32b-instruct
 NIO_GATEWAY_BASE_URL=https://nioai.run
 ```
 
+* Verify that your nio home directory contains
+```
+config
+nio
+```
+
+Also setup a envar on your system pointing to Nio directory so you can use Nio everywhere.
+```
+$env:NIO_HOME="your_nio_home_directory
+```
 
 ### Step 2: Simulate a Local Agent Learning Record
 In your active project workspace directory, create a `.nio` folder if it doesn't exist, and add a test `learnings.json` file to simulate a learning formulate by Nio:
