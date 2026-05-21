@@ -48,7 +48,12 @@ NIO_LOCAL_GPU_BASE_URL=
 NIO_LOCAL_GPU_MODEL=qwen2.5-32b-instruct
 NIO_GATEWAY_BASE_URL=https://nioai.run
 ```
-
+### Your Nio directory should look like this:
+-> Nio uses the config directory at launch, it knows how to load the required envars to connect to gateway.
+```
+config
+Nio
+```
 
 ### Step 2: Simulate a Local Agent Learning Record
 In your active project workspace directory, create a `.nio` folder if it doesn't exist, and add a test `learnings.json` file to simulate a learning formulate by Nio:
@@ -102,3 +107,28 @@ Check if the Render hosted gateway successfully persisted the telemetry:
 3. Click the ... menu.
 4. Choose Install from VSIX....
 5. Select the downloaded .vsix.
+
+
+### Step 7: Make Nio known by your operating system by setting an Envar pointing to your living Nio.
+
+  PowerShell, current session only:
+
+  $env:NIO_HOME = "$HOME\.nio"
+
+  PowerShell, persist for your user:
+
+  [Environment]::SetEnvironmentVariable("NIO_HOME", "$HOME\.nio", "User")
+
+  Then restart your terminal/VS Code.
+
+  macOS/Linux terminal, current session only:
+
+  export NIO_HOME="$HOME/.nio"
+
+  macOS/Linux, persist in shell profile:
+
+  echo 'export NIO_HOME="$HOME/.nio"' >> ~/.bashrc
+
+  For zsh:
+
+  echo 'export NIO_HOME="$HOME/.nio"' >> ~/.zshrc
