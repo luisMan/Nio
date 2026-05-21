@@ -96,3 +96,9 @@ Check if the Render hosted gateway successfully persisted the telemetry:
 *   Verify that the record has been committed to the centralized gateway database (or inspect the Render service logs for the successful `/telemetry/remediations` endpoint execution).
 *   **Expected Result**: The gateway database records a new telemetry record containing the `session_id`, `workspace_id`, and the exact details of the port collision challenge!
 
+### Step 6: Install Visual Studio code extension
+1. Open VS Code.
+2. Go to Extensions.
+3. Click the ... menu.
+4. Choose Install from VSIX....
+5. Select the downloaded .vsix.
