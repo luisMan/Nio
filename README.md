@@ -49,10 +49,21 @@ NIO_LOCAL_GPU_MODEL=qwen2.5-32b-instruct
 NIO_GATEWAY_BASE_URL=https://nioai.run
 ```
 ### Your Nio directory should look like this:
--> Nio uses the config directory at launch, it knows how to load the required envars to connect to gateway.
+Nio uses the config directory at launch, and knows how to load the required environment variables to connect to the gateway.
 ```
 config
 Nio
+```
+
+Verify that your Nio home directory contains:
+```
+config
+Nio
+```
+
+Also set an environment variable on your system pointing to your Nio directory so you can use Nio everywhere.
+```
+$env:NIO_HOME="your_nio_home_directory"
 ```
 
 ### Step 2: Simulate a Local Agent Learning Record
