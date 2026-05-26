@@ -29,6 +29,10 @@ Ensure your client environment profile is configured to target the active hosted
 *   Verify that `NIO_GATEWAY_BASE_URL` is set to your active Render service endpoint:
 ```APP_ENV=production
 LOG_LEVEL=info
+# Nio account key — obtain from https://nioai.run/account
+# Free, Pro, Team and SSO users set this to route through the Nio gateway.
+# Leave empty only if using BYOK (OPENAI_API_KEY or ANTHROPIC_API_KEY).
+NIO_API_KEY=
 NIO_ROUTING_CONFIG_PATH=data/runtime/model-routing.json
 NIO_ROUTING_STATE_BACKEND=file
 NIO_ROUTING_AUTO_RELOAD=false
@@ -46,7 +50,8 @@ NIO_BUDGET_WORKSPACE_REQUESTS_PER_MONTH=5000
 NIO_BUDGET_WORKSPACE_TOKENS_PER_MONTH=2000000
 NIO_LOCAL_GPU_BASE_URL=
 NIO_LOCAL_GPU_MODEL=qwen2.5-32b-instruct
-NIO_GATEWAY_BASE_URL=https://nioai.run
+NIO_GATEWAY_BASE_URL=https://nioai.run/v1
+NIO_ALLOW_CLIENT_USAGE_RESET_ON_SYNC=true
 ```
 ### Your Nio directory should look like this:
 Nio uses the config directory at launch, and knows how to load the required environment variables to connect to the gateway.
