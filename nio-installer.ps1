@@ -11,7 +11,7 @@ The installer for nio 0.1.38
 .DESCRIPTION
 
 This script detects what platform you're on and fetches an appropriate archive from
-https://github.com/luisMan/Nio-AI/releases/download/v0.1.38
+https://raw.githubusercontent.com/luisMan/Nio/main
 then unpacks the binaries and installs them to
 
     $env:CARGO_HOME/bin (or $HOME/.cargo/bin)
@@ -31,7 +31,7 @@ Print help
 
 param (
     [Parameter(HelpMessage = "The URL of the directory where artifacts can be fetched from")]
-    [string]$ArtifactDownloadUrl = 'https://github.com/luisMan/Nio-AI/releases/download/v0.1.38',
+    [string]$ArtifactDownloadUrl = 'https://raw.githubusercontent.com/luisMan/Nio/main',
     [Parameter(HelpMessage = "Don't add the install directory to PATH")]
     [switch]$NoModifyPath,
     [Parameter(HelpMessage = "Print Help")]
@@ -42,7 +42,7 @@ $app_name = 'nio'
 $app_version = '0.1.38'
 
 $receipt = @"
-{"binaries":["CARGO_DIST_BINS"],"binary_aliases":{},"install_prefix":"AXO_INSTALL_PREFIX","provider":{"source":"cargo-dist","version":"0.14.1"},"source":{"app_name":"nio","name":"Nio-AI","owner":"luisMan","release_type":"github"},"version":"0.1.38"}
+{"binaries":["CARGO_DIST_BINS"],"binary_aliases":{},"install_prefix":"AXO_INSTALL_PREFIX","provider":{"source":"cargo-dist","version":"0.14.1"},"source":{"app_name":"nio","name":"Nio","owner":"luisMan","release_type":"github"},"version":"0.1.38"}
 "@
 $receipt_home = "${env:LOCALAPPDATA}\nio"
 
@@ -57,7 +57,7 @@ function Install-Binary($install_args) {
   # Platform info injected by cargo-dist
   $platforms = @{
     "aarch64-pc-windows-msvc" = @{
-      "artifact_name" = "nio-x86_64-pc-windows-msvc.zip"
+      "artifact_name" = "Windows/nio-x86_64-pc-windows-msvc.zip"
       "bins" = "nio.exe"
       "zip_ext" = ".zip"
       "aliases" = @{
@@ -65,7 +65,7 @@ function Install-Binary($install_args) {
       "aliases_json" = '{}'
     }
     "x86_64-pc-windows-msvc" = @{
-      "artifact_name" = "nio-x86_64-pc-windows-msvc.zip"
+      "artifact_name" = "Windows/nio-x86_64-pc-windows-msvc.zip"
       "bins" = "nio.exe"
       "zip_ext" = ".zip"
       "aliases" = @{
