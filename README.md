@@ -15,17 +15,38 @@ Nio can work through the hosted gateway at `nioai.run`, or locally with your own
 Download the latest release:
 
 ```text
-https://github.com/luisMan/Nio-AI/releases
+https://github.com/luisMan/Nio/tree/main
 ```
 
-Windows Installation:
-https://github.com/luisMan/Nio/tree/main/Windows
+macOS / Linux installer:
+
+```bash
+curl --proto '=https' --tlsv1.2 -LsSf https://raw.githubusercontent.com/luisMan/Nio/main/nio-installer.sh | sh
+```
+
+Windows:
+
+```text
+https://github.com/luisMan/Nio/tree/main/Linux
+```
 
 macOS:
+
+```text
 https://github.com/luisMan/Nio/tree/main/MacOs
+```
 
 Linux:
+
+```text
 https://github.com/luisMan/Nio/tree/main/Linux
+```
+
+On Apple Silicon macOS, install Homebrew OpenSSL 3 if Nio reports `libssl.3.dylib` is missing:
+
+```bash
+brew install openssl@3
+```
 
 Verify installation:
 
@@ -103,11 +124,6 @@ NIO_SYNC_SESSION_ON_EXIT=true
 NIO_MEMORY_SHORT_TERM_BACKEND=in_memory
 NIO_MEMORY_MID_TERM_BACKEND=in_memory
 NIO_MEMORY_LONG_TERM_BACKEND=in_memory
-```
-## Nio directory should look like:
-```
-config/
-nio
 ```
 
 Full public client profile example:
