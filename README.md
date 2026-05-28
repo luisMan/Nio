@@ -1,150 +1,509 @@
-# 🚀 Nio-AI Release Notes (v0.1.4) — Testing Guide
+# Nio Public User Manual
 
-This document contains the release notes and detailed verification procedures for the **Autonomous Telemetry & Remediation Sync Engine** introduced in Nio v0.1.4.
+Nio is an AI operator for developers. It helps you understand projects, remember context, resume unfinished work, and safely assist with coding tasks.
 
----
+Nio's workflow is:
 
-## 📌 Release Overview
-This release implements the new **Autonomous Telemetry & Remediation Sync Engine**. 
+```text
+analyze -> recall -> plan -> execute -> remember
+```
 
-When Nio's builder agents encounter obstacles in the user's workspace, they formulate learned solutions and record them locally. This new system automatically detects those learnings and silently syncs them back to the global gateway database. This allows us to aggregate environment bugs and remediations centrally, making Nio smarter and self-correcting over time.
+Nio can work through the hosted gateway at `nioai.run`, or locally with your own provider keys if your plan supports BYOK.
 
----
+## Install Nio
 
-## 🛠️ What to Test (New Features)
-1. **Central Database Storage**: The gateway now records telemetry remediation entries into the central database.
-2. **Zero-Infra Disk Fallback**: If the database is offline, the gateway securely backs up telemetry logs to `data/runtime/telemetry-remediations.json`.
-3. **Autonomous CLI Workspace Sync**: The CLI automatically intercepts the end of prompts, reads local `.nio/learnings.json` files, uploads unsynced records, and flags them as `"synced": true` locally to prevent duplication.
+Download the latest release:
 
----
+```text
+https://github.com/luisMan/Nio-AI/releases
+```
 
-## 🧪 Tester Verification Instructions
+Windows Installation:
+https://github.com/luisMan/Nio/tree/main/Windows
 
-Follow these step-by-step verification instructions to validate the telemetry sync pipeline:
+macOS:
+https://github.com/luisMan/Nio/tree/main/MacOs
 
-### Step 1: Verify the Hosted Render Gateway Connection
-Ensure your client environment profile is configured to target the active hosted Render gateway. Open your profile configuration file:
+Linux:
+https://github.com/luisMan/Nio/tree/main/Linux
 
-📁 **File Path**: `config/profiles/client.env`
-*   Verify that `NIO_GATEWAY_BASE_URL` is set to your active Render service endpoint:
-```APP_ENV=production
+Verify installation:
+
+```powershell
+nio status
+```
+
+## First-Time Setup
+
+Run:
+
+```powershell
+nio setup
+```
+
+This prepares your local Nio configuration, runtime folder, permissions, and default settings.
+
+Recommended Windows runtime location:
+
+```text
+%APPDATA%\Nio
+```
+
+## Account Login
+
+If you are using hosted Nio, log in with the credentials or token provided by Nio:
+
+```powershell
+nio auth-login <user_id> <token>
+```
+
+If registration is available from your build:
+
+```powershell
+nio auth-register <email> <password> <display_name>
+```
+
+## Hosted Mode
+
+Hosted mode is the easiest way to use Nio.
+
+Use hosted mode if you are on:
+
+```text
+Free
+Pro
+Team
+```
+
+In hosted mode:
+
+- Nio authenticates through `nioai.run`.
+- AI requests go through the hosted gateway.
+- You do not need local OpenAI or Anthropic keys.
+- Usage limits are handled by your plan.
+
+## Client Profile Configuration
+
+Packaged Nio clients can use a client profile similar to `config/profiles/client.env`.
+
+For hosted users, the most important values are:
+
+```env
 LOG_LEVEL=info
-# Nio account key — obtain from https://nioai.run/account
-# Free, Pro, Team and SSO users set this to route through the Nio gateway.
-# Leave empty only if using BYOK (OPENAI_API_KEY or ANTHROPIC_API_KEY).
+
+# Nio account key - obtain from https://nioai.run/account
+# Free, Pro, Team, and SSO users set this to route through the Nio gateway.
+# Leave empty only if using BYOK with local OPENAI_API_KEY or ANTHROPIC_API_KEY.
 NIO_API_KEY=
+
+NIO_GATEWAY_BASE_URL=https://nioai.run/v1
+NIO_DEFAULT_PERMISSION_MODE=permission_request
+NIO_SYNC_SESSION_ON_EXIT=true
+
+NIO_MEMORY_SHORT_TERM_BACKEND=in_memory
+NIO_MEMORY_MID_TERM_BACKEND=in_memory
+NIO_MEMORY_LONG_TERM_BACKEND=in_memory
+```
+## Nio directory should look like:
+```
+config/
+nio
+```
+
+Full public client profile example:
+
+```env
+LOG_LEVEL=info
+
+# Nio account key - obtain from https://nioai.run/account
+# Free, Pro, Team, and SSO users set this to route through the Nio gateway.
+# Leave empty only if using BYOK with local OPENAI_API_KEY or ANTHROPIC_API_KEY.
+NIO_API_KEY=
+
 NIO_ROUTING_CONFIG_PATH=data/runtime/model-routing.json
 NIO_ROUTING_STATE_BACKEND=file
 NIO_ROUTING_AUTO_RELOAD=false
 NIO_ROUTING_SIGNAL_REDIS_PUBSUB=false
+
 NIO_AUDIT_LOG_PATH=data/audit/audit-log.jsonl
 NIO_AUDIT_BACKEND=file
+
 NIO_DEFAULT_PERMISSION_MODE=permission_request
 NIO_SYNC_SESSION_ON_EXIT=true
+
 NIO_MEMORY_SHORT_TERM_BACKEND=in_memory
 NIO_MEMORY_MID_TERM_BACKEND=in_memory
 NIO_MEMORY_LONG_TERM_BACKEND=in_memory
+
 NIO_BUDGET_USER_REQUESTS_PER_MONTH=5000
 NIO_BUDGET_USER_TOKENS_PER_MONTH=2000000
 NIO_BUDGET_WORKSPACE_REQUESTS_PER_MONTH=5000
 NIO_BUDGET_WORKSPACE_TOKENS_PER_MONTH=2000000
+
 NIO_LOCAL_GPU_BASE_URL=
 NIO_LOCAL_GPU_MODEL=qwen2.5-32b-instruct
+
 NIO_GATEWAY_BASE_URL=https://nioai.run/v1
 NIO_ALLOW_CLIENT_USAGE_RESET_ON_SYNC=true
 ```
-### Your Nio directory should look like this:
-Nio uses the config directory at launch, and knows how to load the required environment variables to connect to the gateway.
-```
-config
-Nio
+
+Most hosted users should only need `NIO_API_KEY` and `NIO_GATEWAY_BASE_URL`. The other defaults are included so advanced users can inspect or customize their local runtime behavior.
+
+## BYOK Mode
+
+BYOK means "bring your own key."
+
+Use BYOK if your plan allows you to keep provider keys on your own machine.
+
+Nio reads local keys from your Nio runtime folder:
+
+```text
+%NIO_HOME%\.env
 ```
 
-Verify that your Nio home directory contains:
-```
-config
-Nio
+OpenAI example:
+
+```env
+OPENAI_API_KEY=sk-...
 ```
 
-Also set an environment variable on your system pointing to your Nio directory so you can use Nio everywhere.
-```
-$env:NIO_HOME="your_nio_home_directory"
+Anthropic example:
+
+```env
+ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-### Step 2: Simulate a Local Agent Learning Record
-In your active project workspace directory, create a `.nio` folder if it doesn't exist, and add a test `learnings.json` file to simulate a learning formulate by Nio:
+Local model server example:
 
-📁 **File Path**: `.nio/learnings.json`
-```json
-{
-  "learnings": [
-    {
-      "challenge": "Failed to run dev server because port 3000 was already in use by another process.",
-      "root_cause": "Port collision during local server startup.",
-      "resolution": "Checked active port bindings, terminated the conflicting PID, and successfully restarted on port 3000.",
-      "synced": false
-    }
-  ]
-}
+```env
+NIO_LOCAL_GPU_BASE_URL=http://127.0.0.1:11434
+NIO_LOCAL_GPU_MODEL=qwen2.5-32b-instruct
 ```
-*(Make sure `"synced": false` is specified so the sync engine knows it needs to be uploaded!)*
 
-### Step 3: Execute a Prompt to Trigger the Sync
-Run any simple command or prompt using the CLI to trigger a post-execution cycle:
+After adding keys, verify providers:
+
 ```powershell
-nio ask "hello"
+nio smoke-providers
 ```
 
-### Step 4: Verify the Local Workspace File Updates
-Open your `.nio/learnings.json` file again. The sync engine should have successfully uploaded the entry and updated the status:
-*   **Expected Result**: The `"synced": false` field is now **`"synced": true`**!
+## Start Nio
 
-```json
-{
-  "learnings": [
-    {
-      "challenge": "Failed to run dev server because port 3000 was already in use by another process.",
-      "root_cause": "Port collision during local server startup.",
-      "resolution": "Checked active port bindings, terminated the conflicting PID, and successfully restarted on port 3000.",
-      "synced": true
-    }
-  ]
-}
+Interactive CLI:
+
+```powershell
+nio
 ```
 
-### Step 5: Verify the Gateway Database Sync
-Check if the Render hosted gateway successfully persisted the telemetry:
-*   Verify that the record has been committed to the centralized gateway database (or inspect the Render service logs for the successful `/telemetry/remediations` endpoint execution).
-*   **Expected Result**: The gateway database records a new telemetry record containing the `session_id`, `workspace_id`, and the exact details of the port collision challenge!
+Terminal cockpit:
 
-### Step 6: Install Visual Studio code extension
-1. Open VS Code.
-2. Go to Extensions.
-3. Click the ... menu.
-4. Choose Install from VSIX....
-5. Select the downloaded .vsix.
+```powershell
+nio tui
+```
 
+Run Nio from inside a project folder when you want project-aware help:
 
-### Step 7: Make Nio known by your operating system by setting an Envar pointing to your living Nio.
+```powershell
+cd path\to\your\project
+nio
+```
 
-  PowerShell, current session only:
+## Good First Prompts
 
-  $env:NIO_HOME = "$HOME\.nio"
+Try:
 
-  PowerShell, persist for your user:
+```text
+Read this project and explain how to run it locally.
+```
 
-  [Environment]::SetEnvironmentVariable("NIO_HOME", "$HOME\.nio", "User")
+```text
+Summarize the architecture of this codebase.
+```
 
-  Then restart your terminal/VS Code.
+```text
+Find likely bugs or missing setup steps.
+```
 
-  macOS/Linux terminal, current session only:
+```text
+Create a task plan before editing any files.
+```
 
-  export NIO_HOME="$HOME/.nio"
+```text
+Help me implement this change, but ask before modifying files.
+```
 
-  macOS/Linux, persist in shell profile:
+## Common Commands
 
-  echo 'export NIO_HOME="$HOME/.nio"' >> ~/.bashrc
+Check runtime status:
 
-  For zsh:
+```powershell
+nio status
+```
 
-  echo 'export NIO_HOME="$HOME/.nio"' >> ~/.zshrc
+Run diagnostics:
+
+```powershell
+nio doctor
+```
+
+Show current task state:
+
+```powershell
+nio task
+```
+
+Show recommended next steps:
+
+```powershell
+nio next-steps
+```
+
+Show permissions, routing, provider, and trust status:
+
+```powershell
+nio trust
+```
+
+Open the full terminal interface:
+
+```powershell
+nio tui
+```
+
+Start the MCP server:
+
+```powershell
+nio mcp
+```
+
+## Working With Projects
+
+When you run Nio inside a project folder, it can help with:
+
+- Explaining files
+- Reviewing code
+- Creating task plans
+- Editing project files
+- Running commands
+- Starting development servers
+- Debugging errors
+- Resuming unfinished work
+
+Example:
+
+```text
+Inspect this project and tell me the safest next step.
+```
+
+Example:
+
+```text
+Implement the first item in task.md and ask before changing files.
+```
+
+## Permissions
+
+Nio is designed to keep users in control.
+
+Recommended public default:
+
+```text
+permission_request
+```
+
+This means Nio can reason, plan, and explain freely, but should ask before changing files or running sensitive actions.
+
+If Nio asks for permission, review the action before approving it.
+
+## Resume And Recovery
+
+Nio tracks active work so you can recover from interruptions.
+
+Show current activity:
+
+```powershell
+nio task
+```
+
+Inside interactive mode, use:
+
+```text
+/continue
+```
+
+to continue interrupted work.
+
+Use:
+
+```text
+/revise <new instruction>
+```
+
+to redirect the current task.
+
+Use:
+
+```text
+/stop
+```
+
+to cancel the current task.
+
+Use:
+
+```text
+/task
+```
+
+to view current task status.
+
+## Background Processes
+
+If Nio starts a server or background command, list active processes:
+
+```powershell
+nio processes
+```
+
+View logs:
+
+```powershell
+nio process logs <id|pid>
+```
+
+Stop a process:
+
+```powershell
+nio process stop <id|pid>
+```
+
+## Hosted Gateway Settings
+
+Hosted users normally do not need to edit these manually.
+
+If instructed by support, the hosted gateway URL is:
+
+```env
+NIO_GATEWAY_BASE_URL=https://nioai.run/v1
+```
+
+If token auth is required:
+
+```env
+NIO_AUTH_TOKEN=<your-token>
+```
+
+## Local Files Nio Uses
+
+Nio uses `NIO_HOME` as its runtime home.
+
+Important local files may include:
+
+```text
+%NIO_HOME%\.env
+%NIO_HOME%\data\runtime\providers.json
+%NIO_HOME%\data\runtime\billing.json
+%NIO_HOME%\data\runtime\auth-sessions.json
+```
+
+For most hosted users, you should not need to edit these manually.
+
+## Security Notes
+
+For public MVP users:
+
+- Keep `NIO_HOME` inside your user profile.
+- Do not commit `.env` files to git.
+- Do not share provider keys.
+- Do not store Nio config in a shared folder.
+- Use `permission_request` unless you fully trust the workspace.
+- Review file changes before approving them.
+- Hosted users do not need local provider keys.
+
+BYOK provider keys are stored locally in plain text today, so protect your machine account.
+
+## Troubleshooting
+
+If Nio is not working, run:
+
+```powershell
+nio status
+nio doctor
+```
+
+If Nio cannot reach a provider in BYOK mode:
+
+```powershell
+nio smoke-providers
+```
+
+If Nio seems stuck:
+
+```powershell
+nio task
+```
+
+Then use one of:
+
+```text
+/continue
+/revise <new instruction>
+/stop
+```
+
+If hosted login or gateway access fails, check:
+
+```text
+Your login token
+Your internet connection
+NIO_GATEWAY_BASE_URL
+```
+
+## Recommended First Demo
+
+1. Install Nio.
+2. Run:
+
+   ```powershell
+   nio setup
+   nio status
+   nio doctor
+   ```
+
+3. Open a project:
+
+   ```powershell
+   cd path\to\project
+   nio
+   ```
+
+4. Ask:
+
+   ```text
+   Read this project and explain how to run it locally.
+   ```
+
+5. Ask:
+
+   ```text
+   Create a safe task plan for improving this project.
+   ```
+
+6. Ask:
+
+   ```text
+   Implement the first task, but ask before changing files.
+   ```
+
+7. Check task state:
+
+   ```powershell
+   nio task
+   ```
+
+8. Check trust state:
+
+   ```powershell
+   nio trust
+   ```
+
+This demonstrates Nio's core value: project awareness, memory, permissioned execution, and resumable work.
