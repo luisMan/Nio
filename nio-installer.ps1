@@ -6,12 +6,12 @@
 <#
 .SYNOPSIS
 
-The installer for nio 0.1.35
+The installer for nio 0.1.38
 
 .DESCRIPTION
 
 This script detects what platform you're on and fetches an appropriate archive from
-https://github.com/luisMan/Nio-AI/releases/download/v0.1.35
+https://github.com/luisMan/Nio-AI/releases/download/v0.1.38
 then unpacks the binaries and installs them to
 
     $env:CARGO_HOME/bin (or $HOME/.cargo/bin)
@@ -31,7 +31,7 @@ Print help
 
 param (
     [Parameter(HelpMessage = "The URL of the directory where artifacts can be fetched from")]
-    [string]$ArtifactDownloadUrl = 'https://github.com/luisMan/Nio-AI/releases/download/v0.1.35',
+    [string]$ArtifactDownloadUrl = 'https://github.com/luisMan/Nio-AI/releases/download/v0.1.38',
     [Parameter(HelpMessage = "Don't add the install directory to PATH")]
     [switch]$NoModifyPath,
     [Parameter(HelpMessage = "Print Help")]
@@ -39,10 +39,10 @@ param (
 )
 
 $app_name = 'nio'
-$app_version = '0.1.35'
+$app_version = '0.1.38'
 
 $receipt = @"
-{"binaries":["CARGO_DIST_BINS"],"binary_aliases":{},"install_prefix":"AXO_INSTALL_PREFIX","provider":{"source":"cargo-dist","version":"0.14.1"},"source":{"app_name":"nio","name":"Nio-AI","owner":"luisMan","release_type":"github"},"version":"0.1.35"}
+{"binaries":["CARGO_DIST_BINS"],"binary_aliases":{},"install_prefix":"AXO_INSTALL_PREFIX","provider":{"source":"cargo-dist","version":"0.14.1"},"source":{"app_name":"nio","name":"Nio-AI","owner":"luisMan","release_type":"github"},"version":"0.1.38"}
 "@
 $receipt_home = "${env:LOCALAPPDATA}\nio"
 

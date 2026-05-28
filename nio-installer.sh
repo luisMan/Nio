@@ -17,13 +17,13 @@ fi
 set -u
 
 APP_NAME="nio"
-APP_VERSION="0.1.35"
-ARTIFACT_DOWNLOAD_URL="${INSTALLER_DOWNLOAD_URL:-https://github.com/luisMan/Nio-AI/releases/download/v0.1.35}"
+APP_VERSION="0.1.38"
+ARTIFACT_DOWNLOAD_URL="${INSTALLER_DOWNLOAD_URL:-https://github.com/luisMan/Nio-AI/releases/download/v0.1.38}"
 PRINT_VERBOSE=${INSTALLER_PRINT_VERBOSE:-0}
 PRINT_QUIET=${INSTALLER_PRINT_QUIET:-0}
 NO_MODIFY_PATH=${INSTALLER_NO_MODIFY_PATH:-0}
 read -r RECEIPT <<EORECEIPT
-{"binaries":["CARGO_DIST_BINS"],"binary_aliases":{},"install_prefix":"AXO_INSTALL_PREFIX","provider":{"source":"cargo-dist","version":"0.14.1"},"source":{"app_name":"nio","name":"Nio-AI","owner":"luisMan","release_type":"github"},"version":"0.1.35"}
+{"binaries":["CARGO_DIST_BINS"],"binary_aliases":{},"install_prefix":"AXO_INSTALL_PREFIX","provider":{"source":"cargo-dist","version":"0.14.1"},"source":{"app_name":"nio","name":"Nio-AI","owner":"luisMan","release_type":"github"},"version":"0.1.38"}
 EORECEIPT
 # Are we happy with this same path on Linux and Mac?
 RECEIPT_HOME="${HOME}/.config/nio"
@@ -39,10 +39,10 @@ usage() {
     cat <<EOF
 nio-installer.sh
 
-The installer for nio 0.1.35
+The installer for nio 0.1.38
 
 This script detects what platform you're on and fetches an appropriate archive from
-https://github.com/luisMan/Nio-AI/releases/download/v0.1.35
+https://github.com/luisMan/Nio-AI/releases/download/v0.1.38
 then unpacks the binaries and installs them to
 
     \$CARGO_HOME/bin (or \$HOME/.cargo/bin)
