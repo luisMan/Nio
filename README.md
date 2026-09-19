@@ -12,37 +12,34 @@ Nio can work through the hosted gateway at `nioai.run`, or locally with your own
 
 ## Install Nio
 
-Download the latest release:
+Download the [latest release](https://github.com/luisMan/Nio/releases/latest).
+Current stable release: [Nio v0.1.171](https://github.com/luisMan/Nio/releases/tag/v0.1.171).
 
-```text
-https://github.com/luisMan/Nio/tree/main
-```
+| Platform | Download |
+| --- | --- |
+| Windows x64 | [MSI installer](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.msi) / [Portable ZIP](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.zip) |
+| macOS Apple Silicon | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-aarch64-apple-darwin.tar.xz) |
+| Linux x64 | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-unknown-linux-gnu.tar.xz) |
+| VS Code | [Extension v0.1.171](https://github.com/luisMan/Nio/releases/download/v0.1.171/nio-vscode-v0.1.171.vsix) |
+
+SHA-256 checksum files are available alongside the native packages on the release
+page. Use release downloads for current binaries; checked-in platform files are
+historical snapshots.
 
 macOS / Linux installer:
 
 ```bash
-curl --proto '=https' --tlsv1.2 -LsSf https://raw.githubusercontent.com/luisMan/Nio/main/nio-installer.sh | sh
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/luisMan/Nio/releases/latest/download/nio-installer.sh | sh
 ```
 
-Windows:
+Windows PowerShell installer:
 
-```text
-https://github.com/luisMan/Nio/tree/main/Linux
+```powershell
+irm https://github.com/luisMan/Nio/releases/latest/download/nio-installer.ps1 | iex
 ```
 
-macOS:
-
-```text
-https://github.com/luisMan/Nio/tree/main/MacOs
-```
-
-Linux:
-
-```text
-https://github.com/luisMan/Nio/tree/main/Linux
-```
-
-On Apple Silicon macOS, install Homebrew OpenSSL 3 if Nio reports `libssl.3.dylib` is missing:
+On Apple Silicon macOS, install Homebrew OpenSSL 3 if Nio reports
+`libssl.3.dylib` is missing:
 
 ```bash
 brew install openssl@3
@@ -51,6 +48,7 @@ brew install openssl@3
 Verify installation:
 
 ```powershell
+nio --version
 nio status
 ```
 
