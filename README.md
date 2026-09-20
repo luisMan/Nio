@@ -13,14 +13,14 @@ Nio can work through the hosted gateway at `nioai.run`, or locally with your own
 ## Install Nio
 
 Download the [latest release](https://github.com/luisMan/Nio/releases/latest).
-Current stable release: [Nio v0.1.171](https://github.com/luisMan/Nio/releases/tag/v0.1.171).
+Current stable release: [Nio v0.1.172](https://github.com/luisMan/Nio/releases/tag/v0.1.172).
 
 | Platform | Download |
 | --- | --- |
 | Windows x64 | [MSI installer](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.msi) / [Portable ZIP](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.zip) |
 | macOS Apple Silicon | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-aarch64-apple-darwin.tar.xz) |
 | Linux x64 | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-unknown-linux-gnu.tar.xz) |
-| VS Code | [Extension v0.1.171](https://github.com/luisMan/Nio/releases/download/v0.1.171/nio-vscode-v0.1.171.vsix) |
+| VS Code | [Extension v0.1.172](https://github.com/luisMan/Nio/releases/download/v0.1.172/nio-vscode-v0.1.172.vsix) |
 
 SHA-256 checksum files are available alongside the native packages on the release
 page. Use release downloads for current binaries; checked-in platform files are
