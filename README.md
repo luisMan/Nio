@@ -10,17 +10,25 @@ analyze -> recall -> plan -> execute -> remember
 
 Nio can work through the hosted gateway at `nioai.run`, or locally with your own provider keys if your plan supports BYOK.
 
+## How Nio compares
+
+On October 5, 2026 we gave the same coding task to eight models, through Nio and
+as a direct call to the provider. Nio produced a complete app in 7 of 12 attempts;
+direct calls produced one in 1 of 12. Nio costs more per attempt and is slower,
+and on small models it showed no advantage.
+[Full results and method](benchmarks/2026-10-05-nio-vs-direct.md).
+
 ## Install Nio
 
 Download the [latest release](https://github.com/luisMan/Nio/releases/latest).
-Current stable release: [Nio v0.1.201](https://github.com/luisMan/Nio/releases/tag/v0.1.201).
+Current stable release: [Nio v0.1.209](https://github.com/luisMan/Nio/releases/tag/v0.1.209).
 
 | Platform | Download |
 | --- | --- |
 | Windows x64 | [MSI installer](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.msi) / [Portable ZIP](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.zip) |
 | macOS Apple Silicon | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-aarch64-apple-darwin.tar.xz) |
 | Linux x64 | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-unknown-linux-gnu.tar.xz) |
-| VS Code | [Extension v0.1.201](https://github.com/luisMan/Nio/releases/download/v0.1.201/nio-vscode-v0.1.201.vsix) |
+| VS Code | [Extension v0.1.209](https://github.com/luisMan/Nio/releases/download/v0.1.209/nio-vscode-v0.1.209.vsix) |
 
 SHA-256 checksum files are available alongside the native packages on the release
 page. Use release downloads for current binaries; checked-in platform files are
