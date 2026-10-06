@@ -25,14 +25,14 @@ from 70 to 81 over v0.1.209 and lowered Nio's API cost by 15%.
 ## Install Nio
 
 Download the [latest release](https://github.com/luisMan/Nio/releases/latest).
-Current stable release: [Nio v0.1.210](https://github.com/luisMan/Nio/releases/tag/v0.1.210).
+Current stable release: [Nio v0.1.211](https://github.com/luisMan/Nio/releases/tag/v0.1.211).
 
 | Platform | Download |
 | --- | --- |
 | Windows x64 | [MSI installer](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.msi) / [Portable ZIP](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.zip) |
 | macOS Apple Silicon | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-aarch64-apple-darwin.tar.xz) |
 | Linux x64 | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-unknown-linux-gnu.tar.xz) |
-| VS Code | [Extension v0.1.210](https://github.com/luisMan/Nio/releases/download/v0.1.210/nio-vscode-v0.1.210.vsix) |
+| VS Code | [Extension v0.1.211](https://github.com/luisMan/Nio/releases/download/v0.1.211/nio-vscode-v0.1.211.vsix) |
 
 SHA-256 checksum files are available alongside the native packages on the release
 page. Use release downloads for current binaries; checked-in platform files are
