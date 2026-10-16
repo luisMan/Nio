@@ -2,6 +2,10 @@
 
 Nio is an AI operator for developers. It helps you understand projects, remember context, resume unfinished work, and safely assist with coding tasks.
 
+[![Watch Nio build an app, then recall it the next day](https://nioai.run/media/nio-promo-poster.jpg)](https://luisman.github.io/Nio/why-nio.html)
+
+**[Why Nio: watch the 70-second demo and see the benchmarks →](https://luisman.github.io/Nio/why-nio.html)**
+
 Nio's workflow is:
 
 ```text
