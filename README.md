@@ -22,6 +22,11 @@ On October 6, 2026, v0.1.210 raised the average score on four benchmark tasks
 from 70 to 81 over v0.1.209 and lowered Nio's API cost by 15%.
 [v0.1.210 vs v0.1.209](benchmarks/2026-10-06-v0.1.210-vs-v0.1.209.md).
 
+On October 15, 2026, v0.1.236 halved the cost per finished task, from $0.47 to
+$0.23, with every run still passing its checks, an independent review and the
+build. A direct model call is still cheaper for a small app built from scratch.
+[v0.1.236 cost per task](benchmarks/2026-10-15-v0.1.236-cost-per-task.md).
+
 ## Install Nio
 
 Download the [latest release](https://github.com/luisMan/Nio/releases/latest).
