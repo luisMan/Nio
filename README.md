@@ -34,23 +34,27 @@ build. A direct model call is still cheaper for a small app built from scratch.
 For the full picture, with the promo video, see [Why Nio](why-nio.md) (also as a
 web page: [why-nio.html](https://luisman.github.io/Nio/why-nio.html)).
 
+## Use Nio from ChatGPT, Claude and AI agents
+
+Connect any remote MCP client to `https://nioai.run/mcp` to use your Nio memory, and run `nio connect` on your computer to hand it project tasks. Setup for each client: [remote MCP guide](remote-mcp.md).
+
 ## Install Nio
 
 Download the [latest release](https://github.com/luisMan/Nio/releases/latest).
-Current stable release: [Nio v0.1.237](https://github.com/luisMan/Nio/releases/tag/v0.1.237).
+Current stable release: [Nio v0.1.238](https://github.com/luisMan/Nio/releases/tag/v0.1.238).
 
 | Platform | Download |
 | --- | --- |
 | Windows x64 | [MSI installer](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.msi) / [Portable ZIP](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.zip) |
 | macOS Apple Silicon | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-aarch64-apple-darwin.tar.xz) |
 | Linux x64 | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-unknown-linux-gnu.tar.xz) |
-| VS Code | [Extension v0.1.237](https://github.com/luisMan/Nio/releases/download/v0.1.237/nio-vscode-v0.1.237.vsix) |
+| VS Code | [Extension v0.1.238](https://github.com/luisMan/Nio/releases/download/v0.1.238/nio-vscode-v0.1.238.vsix) |
 
 SHA-256 checksum files are available alongside the native packages on the release
-page. The same v0.1.237 packages, each with its `.sha256` file, are also in this
+page. The same v0.1.238 packages, each with its `.sha256` file, are also in this
 repository: [Windows/](Windows/), [MacOs/](MacOs/), [Linux/](Linux/), the
 installers [nio-installer.ps1](nio-installer.ps1) and [nio-installer.sh](nio-installer.sh),
-and the VS Code extension [nio-vscode-v0.1.237.vsix](nio-vscode-v0.1.237.vsix).
+and the VS Code extension [nio-vscode-v0.1.238.vsix](nio-vscode-v0.1.238.vsix).
 
 macOS / Linux installer:
 
