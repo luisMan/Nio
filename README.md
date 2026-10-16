@@ -27,7 +27,8 @@ $0.23, with every run still passing its checks, an independent review and the
 build. A direct model call is still cheaper for a small app built from scratch.
 [v0.1.236 cost per task](benchmarks/2026-10-15-v0.1.236-cost-per-task.md).
 
-For the full picture, with the promo video, see [Why Nio](why-nio.md).
+For the full picture, with the promo video, see [Why Nio](why-nio.md) (also as a
+web page: [why-nio.html](https://luisman.github.io/Nio/why-nio.html)).
 
 ## Install Nio
 
@@ -42,8 +43,10 @@ Current stable release: [Nio v0.1.237](https://github.com/luisMan/Nio/releases/t
 | VS Code | [Extension v0.1.237](https://github.com/luisMan/Nio/releases/download/v0.1.237/nio-vscode-v0.1.237.vsix) |
 
 SHA-256 checksum files are available alongside the native packages on the release
-page. Use release downloads for current binaries; checked-in platform files are
-historical snapshots.
+page. The same v0.1.237 packages, each with its `.sha256` file, are also in this
+repository: [Windows/](Windows/), [MacOs/](MacOs/), [Linux/](Linux/), the
+installers [nio-installer.ps1](nio-installer.ps1) and [nio-installer.sh](nio-installer.sh),
+and the VS Code extension [nio-vscode-v0.1.237.vsix](nio-vscode-v0.1.237.vsix).
 
 macOS / Linux installer:
 
