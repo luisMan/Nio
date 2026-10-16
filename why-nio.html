@@ -133,11 +133,11 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 </div>
 
 <h2>Where Nio is <em>not</em> the best choice (yet)</h2>
-<p>We'd rather you trust us than be surprised:</p>
+<p>We'd rather you trust us than be surprised. Measured on Nio v0.1.237 on October 16, 2026, 3 runs of each task:</p>
 <ul>
-<li><strong>Very small edits</strong> cost more through Nio than a single direct model call, because Nio also builds and checks the result. A one-line change doesn't need that.</li>
-<li><strong>Small models</strong> gain little: with GPT-5 mini, the direct calls already scored about as well.</li>
-<li><strong>Nio is slower than a single model reply</strong>, because it actually runs your builds and tests. You're paying for a verified result, not for the first draft.</li>
+<li><strong>Very small edits</strong> cost more through Nio than a single direct model call, because Nio also runs the tests and checks the result. In our v0.1.237 test, a one-line bug fix with Claude Sonnet 5.5 cost about <strong>$0.11 through Nio vs $0.05 direct</strong>; both fixed it every time. A one-line change doesn't need that.</li>
+<li><strong>Small models</strong> gain little: on v0.1.237, GPT-5 mini averaged <strong>94 through Nio and 96 called directly</strong> on the calculator benchmark, for about $0.14 vs $0.10 per run.</li>
+<li><strong>Nio is slower than a single model reply</strong>, because it actually runs your builds and tests: that one-line fix took about <strong>30 s through Nio vs 6 s direct</strong>. You're paying for a verified result, not for the first draft.</li>
 </ul>
 <p>Nio pays off on real work: fixing a broken site, building a feature end to end, coming back to a project the next day.</p>
 
