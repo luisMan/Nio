@@ -7,7 +7,7 @@ Since v0.1.238, Nio answers MCP at **`https://nioai.run/mcp`**. Any client that 
 | Use your Nio memory | `memory_search`, `memory_save`, `task_list`, `project_context`, `auth_whoami` | A Nio API key or an OAuth sign-in |
 | Hand Nio project tasks | `nio_ask`, `nio_task_status`, `nio_task_cancel`, `project_status`, `project_decisions`, `project_record`, `project_resume` | A Nio API key, and `nio connect` running on your computer |
 
-Your code never runs on nioai.run. Project tasks travel to your own Nio, which runs them with your permission settings. Nio changes files in a project only after you allow it for that project. Allow it on your computer with `nio cli allow-project <your account> <project folder>`. In v0.1.238 a connected client can also call `project_allow_writes`; keep tool approval on in your client and connect only clients you trust. The next release removes that tool from remote clients.
+Your code never runs on nioai.run. Project tasks travel to your own Nio, which runs them with your permission settings. Nio changes files in a project only after you allow it for that project. Allow it on your computer with `nio cli allow-project <your account> <project folder>`.
 
 ## Connect a client
 
