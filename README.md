@@ -41,20 +41,20 @@ Connect any remote MCP client to `https://nioai.run/mcp` to use your Nio memory,
 ## Install Nio
 
 Download the [latest release](https://github.com/luisMan/Nio/releases/latest).
-Current stable release: [Nio v0.1.239](https://github.com/luisMan/Nio/releases/tag/v0.1.239).
+Current stable release: [Nio v0.1.240](https://github.com/luisMan/Nio/releases/tag/v0.1.240).
 
 | Platform | Download |
 | --- | --- |
 | Windows x64 | [MSI installer](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.msi) / [Portable ZIP](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-pc-windows-msvc.zip) |
 | macOS Apple Silicon | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-aarch64-apple-darwin.tar.xz) |
 | Linux x64 | [Archive](https://github.com/luisMan/Nio/releases/latest/download/nio-x86_64-unknown-linux-gnu.tar.xz) |
-| VS Code | [Extension v0.1.239](https://github.com/luisMan/Nio/releases/download/v0.1.239/nio-vscode-v0.1.239.vsix) |
+| VS Code | [Extension v0.1.240](https://github.com/luisMan/Nio/releases/download/v0.1.240/nio-vscode-v0.1.240.vsix) |
 
 SHA-256 checksum files are available alongside the native packages on the release
-page. The same v0.1.239 packages, each with its `.sha256` file, are also in this
+page. The same v0.1.240 packages, each with its `.sha256` file, are also in this
 repository: [Windows/](Windows/), [MacOs/](MacOs/), [Linux/](Linux/), the
 installers [nio-installer.ps1](nio-installer.ps1) and [nio-installer.sh](nio-installer.sh),
-and the VS Code extension [nio-vscode-v0.1.239.vsix](nio-vscode-v0.1.239.vsix).
+and the VS Code extension [nio-vscode-v0.1.240.vsix](nio-vscode-v0.1.240.vsix).
 
 macOS / Linux installer:
 
