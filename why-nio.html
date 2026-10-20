@@ -76,16 +76,16 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 <p>Nio isn't a model. It works <em>with</em> your model, and every comparison below uses the same model both ways: once through Nio, once called directly. Every figure comes from a benchmark we ran ourselves and can rerun, with its caveats listed.</p>
 
 <h3>1. Nio + LLM finishes what a direct LLM leaves half-done</h3>
-<p><strong>Calculator app benchmark</strong> (2026-10-05, 8 models, 24 runs)</p>
+<p><strong>Calculator app benchmark</strong> (2026-10-19, Nio v0.1.249, 8 models, 23 runs)</p>
 <div class="table-wrap"><table>
 <thead><tr><th></th><th class="num">Nio + LLM</th><th class="num">Direct LLM (same model)</th></tr></thead>
 <tbody>
-<tr><td>Complete, fully working apps</td><td class="num"><strong>7 of 12</strong></td><td class="num">1 of 12</td></tr>
-<tr><td>Average score</td><td class="num"><strong>94</strong></td><td class="num">78</td></tr>
-<tr><td>Cost per <em>complete</em> app</td><td class="num"><strong>$1.97</strong></td><td class="num">$4.94</td></tr>
-<tr><td>Sonnet 5.5, three runs</td><td class="num"><strong>100 / 100 / 100</strong></td><td class="num">69 / 69 / 76</td></tr>
+<tr><td>Complete, fully working apps</td><td class="num"><strong>8 of 12</strong></td><td class="num">1 of 11</td></tr>
+<tr><td>Average score</td><td class="num"><strong>88</strong></td><td class="num">67</td></tr>
+<tr><td>Cost per <em>complete</em> app</td><td class="num"><strong>$1.53</strong></td><td class="num">$3.63</td></tr>
+<tr><td>Sonnet 5.5, three runs</td><td class="num"><strong>100 / 100 / 100</strong></td><td class="num">76 / 76 / 0</td></tr>
 </tbody></table></div>
-<p>Nio + LLM spent more in total, but because it finished far more often, each working app cost <strong>60% less</strong>. <a href="https://github.com/luisMan/Nio/blob/main/benchmarks/2026-10-05-nio-vs-direct.md">Results and method</a>.</p>
+<p>Nio + LLM spent more in total, but because it finished far more often, each working app cost <strong>58% less</strong>. It is the third run of this benchmark (October 5: 7 of 12 vs 1 of 12), and Sonnet 5.5 has scored 100 through Nio in all nine runs. <a href="https://github.com/luisMan/Nio/blob/main/benchmarks/2026-10-19-v0.1.249-nio-vs-direct.md">Results and method</a>.</p>
 
 <p><strong>Fix a broken site</strong> (2026-10-12, Claude Sonnet 4.6 on both sides)</p>
 <div class="table-wrap"><table>
@@ -109,7 +109,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 <h3>3. Your project's memory costs nothing to recall</h3>
 <ul>
 <li>Asking "where did we leave off?" the next day is answered locally: <strong>0 requests, 0 tokens, $0.</strong></li>
-<li>Work that was already verified is reused instead of redone: <strong>$0 and 1.6 s</strong> in 4 of 7 repeat runs.</li>
+<li>Work that was already verified is reused instead of redone: <strong>$0 and about 1 s</strong> in 4 of 11 repeat runs.</li>
 </ul>
 
 <h3>4. It handles real-size projects</h3>
@@ -133,10 +133,11 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 </div>
 
 <h2>Where Nio is <em>not</em> the best choice (yet)</h2>
-<p>We'd rather you trust us than be surprised. Measured on Nio v0.1.237 on October 16, 2026, 3 runs of each task:</p>
+<p>We'd rather you trust us than be surprised. Measured on Nio v0.1.237 (October 16, 2026) and v0.1.249 (October 19, 2026), 3 runs of each task:</p>
 <ul>
 <li><strong>Very small edits</strong> cost more through Nio than a single direct model call, because Nio also runs the tests and checks the result. In our v0.1.237 test, a one-line bug fix with Claude Sonnet 5.5 cost about <strong>$0.11 through Nio vs $0.05 direct</strong>; both fixed it every time. A one-line change doesn't need that.</li>
-<li><strong>Small models</strong> gain little: on v0.1.237, GPT-5 mini averaged <strong>94 through Nio and 96 called directly</strong> on the calculator benchmark, for about $0.14 vs $0.10 per run.</li>
+<li><strong>Small models</strong> gain little: on v0.1.249, GPT-5 mini scored <strong>0, 100 and 100 through Nio and 93, 100 and 88 called directly</strong> on the calculator benchmark, for about $0.10 vs $0.08 per run. One Nio run stalled before writing the app.</li>
+<li><strong>GPT-5.1</strong> did better called directly on the same benchmark: <strong>93 vs 76 through Nio</strong>, which left out several requested features. We're working on both.</li>
 <li><strong>Nio is slower than a single model reply</strong>, because it actually runs your builds and tests: that one-line fix took about <strong>30 s through Nio vs 6 s direct</strong>. You're paying for a verified result, not for the first draft.</li>
 </ul>
 <p>Nio pays off on real work: fixing a broken site, building a feature end to end, coming back to a project the next day.</p>

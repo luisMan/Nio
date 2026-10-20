@@ -18,16 +18,16 @@ Every figure below comes from a benchmark we ran ourselves and can rerun. The ca
 
 ### 1. Nio + LLM finishes what a direct LLM leaves half-done
 
-**Calculator app benchmark (2026-10-05, 8 models, 24 runs)**
+**Calculator app benchmark (2026-10-19, Nio v0.1.249, 8 models, 23 runs)**
 
 | | Nio + LLM | Direct LLM (same model) |
 | --- | ---: | ---: |
-| Complete, fully working apps | **7 of 12** | 1 of 12 |
-| Average score | **94** | 78 |
-| Cost per *complete* app | **$1.97** | $4.94 |
-| Sonnet 5.5, three runs | **100 / 100 / 100** | 69 / 69 / 76 |
+| Complete, fully working apps | **8 of 12** | 1 of 11 |
+| Average score | **88** | 67 |
+| Cost per *complete* app | **$1.53** | $3.63 |
+| Sonnet 5.5, three runs | **100 / 100 / 100** | 76 / 76 / 0 |
 
-Nio + LLM spent more in total, but because it finished far more often, each working app cost **60% less**.
+Nio + LLM spent more in total, but because it finished far more often, each working app cost **58% less**. It is the third run of this benchmark (October 5: 7 of 12 vs 1 of 12), and Sonnet 5.5 has scored 100 through Nio in all nine runs. [Results and method](benchmarks/2026-10-19-v0.1.249-nio-vs-direct.md).
 
 **Fix a broken site (2026-10-12, Claude Sonnet 4.6 on both sides)**
 
@@ -52,7 +52,7 @@ That is **half the cost** on the same tasks, with 6 of 6 finished, each after an
 ### 3. Your project's memory costs nothing to recall
 
 - Asking "where did we leave off?" the next day is answered locally: **0 requests, 0 tokens, $0.**
-- Work that was already verified is reused instead of redone: **$0 and 1.6 s** in 4 of 7 repeat runs.
+- Work that was already verified is reused instead of redone: **$0 and about 1 s** in 4 of 11 repeat runs.
 
 ### 4. It handles real-size projects
 
@@ -84,10 +84,11 @@ Measured on 2026-10-09 against generated projects:
 
 ## Where Nio is *not* the best choice (yet)
 
-We'd rather you trust us than be surprised. Measured on Nio v0.1.237 on October 16, 2026, 3 runs of each task:
+We'd rather you trust us than be surprised. Measured on Nio v0.1.237 (October 16, 2026) and v0.1.249 (October 19, 2026), 3 runs of each task:
 
 - **Very small edits** cost more through Nio than a single direct model call, because Nio also runs the tests and checks the result. In our v0.1.237 test, a one-line bug fix with Claude Sonnet 5.5 cost about **$0.11 through Nio vs $0.05 direct**; both fixed it every time. A one-line change doesn't need that.
-- **Small models** gain little: on v0.1.237, GPT-5 mini averaged **94 through Nio and 96 called directly** on the calculator benchmark, for about $0.14 vs $0.10 per run.
+- **Small models** gain little: on v0.1.249, GPT-5 mini scored **0, 100 and 100 through Nio and 93, 100 and 88 called directly** on the calculator benchmark, for about $0.10 vs $0.08 per run. One Nio run stalled before writing the app.
+- **GPT-5.1** did better called directly on the same benchmark: **93 vs 76 through Nio**, which left out several requested features. We're working on both.
 - **Nio is slower than a single model reply**, because it actually runs your builds and tests: that one-line fix took about **30 s through Nio vs 6 s direct**. You're paying for a verified result, not for the first draft.
 
 Nio pays off on real work: fixing a broken site, building a feature end to end, coming back to a project the next day.
