@@ -133,11 +133,11 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 </div>
 
 <h2>Where Nio is <em>not</em> the best choice (yet)</h2>
-<p>We'd rather you trust us than be surprised. Measured on Nio v0.1.237 (October 16, 2026) and the v0.1.251 changes (October 20, 2026), 3 runs of each task:</p>
+<p>We'd rather you trust us than be surprised. Measured on Nio v0.1.237 (October 16, 2026), the v0.1.251 changes (October 20) and v0.1.252 (October 21), 3 runs of each task:</p>
 <ul>
 <li><strong>Very small edits</strong> cost more through Nio than a single direct model call, because Nio also runs the tests and checks the result. In our v0.1.237 test, a one-line bug fix with Claude Sonnet 5.5 cost about <strong>$0.11 through Nio vs $0.05 direct</strong>; both fixed it every time. A one-line change doesn't need that.</li>
 <li><strong>Small models</strong> gain little: with the v0.1.251 changes, GPT-5 mini averages <strong>98 through Nio and 98 called directly</strong> on the calculator benchmark, so the same result for about twice the cost ($0.19 vs $0.09 per run). Claude Haiku 4.5 does gain: <strong>96 through Nio vs 48 direct</strong>.</li>
-<li><strong>GPT-5.1</strong> still does better called directly: <strong>95 vs 78 through Nio</strong>, which often plans instead of making the changes. We're working on it. <a href="https://github.com/luisMan/Nio/blob/main/benchmarks/2026-10-20-v0.1.251-small-models.md">October 20 results</a>.</li>
+<li><strong>GPT-5.1</strong> costs more through Nio: since v0.1.252 it averages <strong>98 through Nio vs 91 called directly</strong>, both with reasoning on, but at about <strong>$1.79 vs $0.64 per run</strong>. <a href="https://github.com/luisMan/Nio/blob/main/benchmarks/2026-10-21-v0.1.252-gpt-5-1.md">October 21 results</a>.</li>
 <li><strong>Nio is slower than a single model reply</strong>, because it actually runs your builds and tests: that one-line fix took about <strong>30 s through Nio vs 6 s direct</strong>. You're paying for a verified result, not for the first draft.</li>
 </ul>
 <p>Nio pays off on real work: fixing a broken site, building a feature end to end, coming back to a project the next day.</p>

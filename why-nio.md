@@ -84,11 +84,11 @@ Measured on 2026-10-09 against generated projects:
 
 ## Where Nio is *not* the best choice (yet)
 
-We'd rather you trust us than be surprised. Measured on Nio v0.1.237 (October 16, 2026) and the v0.1.251 changes (October 20, 2026), 3 runs of each task:
+We'd rather you trust us than be surprised. Measured on Nio v0.1.237 (October 16, 2026), the v0.1.251 changes (October 20) and v0.1.252 (October 21), 3 runs of each task:
 
 - **Very small edits** cost more through Nio than a single direct model call, because Nio also runs the tests and checks the result. In our v0.1.237 test, a one-line bug fix with Claude Sonnet 5.5 cost about **$0.11 through Nio vs $0.05 direct**; both fixed it every time. A one-line change doesn't need that.
 - **Small models** gain little: with the v0.1.251 changes, GPT-5 mini averages **98 through Nio and 98 called directly** on the calculator benchmark, so the same result for about twice the cost ($0.19 vs $0.09 per run). Claude Haiku 4.5 does gain: **96 through Nio vs 48 direct**.
-- **GPT-5.1** still does better called directly: **95 vs 78 through Nio**, which often plans instead of making the changes. We're working on it. [October 20 results](benchmarks/2026-10-20-v0.1.251-small-models.md).
+- **GPT-5.1** costs more through Nio: since v0.1.252 it averages **98 through Nio vs 91 called directly**, both with reasoning on, but at about **$1.79 vs $0.64 per run**. [October 21 results](benchmarks/2026-10-21-v0.1.252-gpt-5-1.md).
 - **Nio is slower than a single model reply**, because it actually runs your builds and tests: that one-line fix took about **30 s through Nio vs 6 s direct**. You're paying for a verified result, not for the first draft.
 
 Nio pays off on real work: fixing a broken site, building a feature end to end, coming back to a project the next day.
