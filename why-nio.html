@@ -85,7 +85,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 <tr><td>Cost per <em>complete</em> app</td><td class="num"><strong>$1.53</strong></td><td class="num">$3.63</td></tr>
 <tr><td>Sonnet 5.5, three runs</td><td class="num"><strong>100 / 100 / 100</strong></td><td class="num">76 / 76 / 0</td></tr>
 </tbody></table></div>
-<p>Nio + LLM spent more in total, but because it finished far more often, each working app cost <strong>58% less</strong>. It is the third run of this benchmark (October 5: 7 of 12 vs 1 of 12), and Sonnet 5.5 has scored 100 through Nio in all nine runs. <a href="https://github.com/luisMan/Nio/blob/main/benchmarks/2026-10-19-v0.1.249-nio-vs-direct.md">Results and method</a>.</p>
+<p>Nio + LLM spent more in total, but because it finished far more often, each working app cost <strong>58% less</strong>. It is the third run of this benchmark (October 5: 7 of 12 vs 1 of 12), and Sonnet 5.5 has scored 100 through Nio in all nine runs. <a href="https://docs.nioai.run/benchmarks/2026-10-19-v0.1.249-nio-vs-direct.html">Results and method</a>.</p>
 
 <p><strong>Fix a broken site</strong> (2026-10-12, Claude Sonnet 4.6 on both sides)</p>
 <div class="table-wrap"><table>
@@ -104,7 +104,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 <tr><td>v0.1.235 with the approval fixes</td><td class="num">$0.47</td></tr>
 <tr><td>v0.1.236 (2026-10-15)</td><td class="num"><strong>$0.23</strong></td></tr>
 </tbody></table></div>
-<p>That is <strong>half the cost</strong> on the same tasks, with 6 of 6 finished, each after an independent review and a passing build. A new app now costs about <strong>$0.11</strong>. <a href="https://github.com/luisMan/Nio/blob/main/benchmarks/2026-10-15-v0.1.236-cost-per-task.md">Results and method</a>.</p>
+<p>That is <strong>half the cost</strong> on the same tasks, with 6 of 6 finished, each after an independent review and a passing build. A new app now costs about <strong>$0.11</strong>. <a href="https://docs.nioai.run/benchmarks/2026-10-15-v0.1.236-cost-per-task.html">Results and method</a>.</p>
 
 <h3>3. Your project's memory costs nothing to recall</h3>
 <ul>
@@ -137,7 +137,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 <ul>
 <li><strong>Very small edits</strong> cost more through Nio than a single direct model call, because Nio also runs the tests and checks the result. In our v0.1.237 test, a one-line bug fix with Claude Sonnet 5.5 cost about <strong>$0.11 through Nio vs $0.05 direct</strong>; both fixed it every time. A one-line change doesn't need that.</li>
 <li><strong>Small models</strong> gain little: with the v0.1.251 changes, GPT-5 mini averages <strong>98 through Nio and 98 called directly</strong> on the calculator benchmark, so the same result for about twice the cost ($0.19 vs $0.09 per run). Claude Haiku 4.5 does gain: <strong>96 through Nio vs 48 direct</strong>.</li>
-<li><strong>GPT-5.1</strong> costs more through Nio: since v0.1.252 it averages <strong>98 through Nio vs 91 called directly</strong>, both with reasoning on, but at about <strong>$1.79 vs $0.64 per run</strong>. <a href="https://github.com/luisMan/Nio/blob/main/benchmarks/2026-10-21-v0.1.252-gpt-5-1.md">October 21 results</a>.</li>
+<li><strong>GPT-5.1</strong> costs more through Nio: since v0.1.252 it averages <strong>98 through Nio vs 91 called directly</strong>, both with reasoning on, but at about <strong>$1.79 vs $0.64 per run</strong>. <a href="https://docs.nioai.run/benchmarks/2026-10-21-v0.1.252-gpt-5-1.html">October 21 results</a>.</li>
 <li><strong>Nio is slower than a single model reply</strong>, because it actually runs your builds and tests: that one-line fix took about <strong>30 s through Nio vs 6 s direct</strong>. You're paying for a verified result, not for the first draft.</li>
 </ul>
 <p>Nio pays off on real work: fixing a broken site, building a feature end to end, coming back to a project the next day.</p>
@@ -151,7 +151,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 
 <div class="cta"><ul>
 <li>Website and plans: <a href="https://nioai.run"><strong>nioai.run</strong></a></li>
-<li>Downloads and release notes: <a href="https://github.com/luisMan/Nio/releases"><strong>github.com/luisMan/Nio/releases</strong></a></li>
+<li>Downloads and release notes: <a href="https://nioai.run"><strong>nioai.run</strong></a></li>
 <li>Questions: <a href="mailto:support@nioai.run"><strong>support@nioai.run</strong></a></li>
 </ul></div>
 
@@ -164,7 +164,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 <tr><td>Reel / Shorts, 9:16</td><td><a href="https://nioai.run/media/nio-promo-reel-9x16.webm">nio-promo-reel-9x16.webm</a></td></tr>
 </tbody></table></div>
 
-<footer>How we measured: results and method for each benchmark are in <a href="https://github.com/luisMan/Nio/tree/main/benchmarks">benchmarks/</a>. Costs are list-price estimates of model usage. The calculator rubric checks source patterns, and its direct baseline was one-shot with no tool loop. The fix-site and build-app checks are browser checks on the running app. Results vary from run to run; three runs of the same task can differ by about ±25% in cost.</footer>
+<footer>How we measured: results and method for each benchmark are in <a href="https://docs.nioai.run/#how-nio-compares">benchmarks</a>. Costs are list-price estimates of model usage. The calculator rubric checks source patterns, and its direct baseline was one-shot with no tool loop. The fix-site and build-app checks are browser checks on the running app. Results vary from run to run; three runs of the same task can differ by about ±25% in cost.</footer>
 
 </main>
 </body>

@@ -112,7 +112,7 @@ powershell -c "irm https://github.com/luisMan/Nio/releases/latest/download/nio-i
 Then give it something real: a bug you've been putting off, or the app you've been meaning to build. Ask it again tomorrow and see what it remembers.
 
 - Website and plans: **[nioai.run](https://nioai.run)**
-- Downloads and release notes: **[github.com/luisMan/Nio/releases](https://github.com/luisMan/Nio/releases)**
+- Downloads and release notes: **[nioai.run](https://nioai.run)**
 - Questions: **[support@nioai.run](mailto:support@nioai.run)**
 
 ### More videos
