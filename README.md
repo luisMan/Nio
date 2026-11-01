@@ -31,6 +31,12 @@ $0.23, with every run still passing its checks, an independent review and the
 build. A direct model call is still cheaper for a small app built from scratch.
 [v0.1.236 cost per task](benchmarks/2026-10-15-v0.1.236-cost-per-task.md).
 
+On October 31, 2026, v0.1.272 finished all 15 runs of five tasks, against
+12 of 15 for OpenCode, 14 of 15 for OpenCode with Gentle-AI and 9 of 15 for a
+direct call. With both on Claude Sonnet 4.6, Nio finished as many tasks as
+Gentle-AI or more at 21–35% lower cost; Gentle-AI was faster on most tasks.
+[v0.1.272 vs other agents](benchmarks/2026-10-31-v0.1.272-nio-vs-agents.md).
+
 For the full picture, with the promo video, see [Why Nio](why-nio.md) (also as a
 web page: [why-nio.html](https://luisman.github.io/Nio/why-nio.html)).
 
